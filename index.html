@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Neon Digital Clock</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .neon {
+      text-shadow: 0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #0ff,
+                   0 0 70px #0ff,
+                   0 0 80px #0ff,
+                   0 0 100px #0ff,
+                   0 0 150px #0ff;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="clock" class="neon"></h1>
+  
+  <script>
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      
+      hours = (hours < 10 ? "0" : "") + hours;
+      minutes = (minutes < 10 ? "0" : "") + minutes;
+      seconds = (seconds < 10 ? "0" : "") + seconds;
+      
+      var timeString = hours + ":" + minutes + ":" + seconds;
+      
+      document.getElementById("clock").innerHTML = timeString;
+    }
+    
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
